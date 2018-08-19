@@ -1,0 +1,16 @@
+,Legs,Cold or Warm Blooded,Covering,Aquatic,Aerial,Lays Eggs,Category
+swan,2,warm,feathers,partial,yes,yes,bird
+river otter,4,warm,fur,partial,no,no,mammal
+sea lion,4,warm,hair,partial,no,no,mammal
+sugar glider,4,warm,fur,no,yes,no,mammal
+pelican,2,warm,feathers,partial,yes,yes,bird
+ringed caecilian,0,cold,none,partial,no,yes,amphibian
+crocodile,4,cold,scales,partial,no,yes,reptile
+golden eagle,2,warm,feathers,no,yes,yes,bird
+wildebeest,4,warm,fur,no,no,no,mammal
+walrus,4,warm,fur,partial,no,no,mammal
+sea otter,4,warm,fur,yes,no,no,mammal
+polar bear,4,warm,fur,partial,no,no,mammal
+dolphin,0,warm,none,yes,no,no,mammal
+ichthyophis,0,cold,none,partial,no,yes,amphibian
+tuatara,4,cold,scales,no,no,yes,reptile

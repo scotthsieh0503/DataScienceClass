@@ -1,0 +1,13 @@
+SELECT l.full_name, le.learning_event,  lts.percentage, lgf.letter_grade as final_letter_grade
+FROM learner_grades_fact lgf 
+INNER JOIN learning_event_dimension le ON lgf.learning_event_key = le.learning_event_key
+INNER JOIN gradable_activity_dimension ga ON lgf.gradable_activity_key = ga.gradable_activity_key
+INNER JOIN learner_dimension l ON lgf.learner_key = l.learner_key
+INNER JOIN 
+(SELECT lgf.learner_key, lgf.raw_score / ga.points_possible as percentage, lgf.learning_event_key
+FROM learner_grades_fact lgf 
+INNER JOIN learning_event_dimension le ON lgf.learning_event_key = le.learning_event_key
+INNER JOIN gradable_activity_dimension ga ON lgf.gradable_activity_key = ga.gradable_activity_key
+WHERE event_type = 'curriculum' AND ga.activity_name LIKE "%attendance%" AND points_possible IS NOT NULL AND lgf.raw_score IS NOT NULL) lts ON (lgf.learner_key = lts.`learner_key`)
+WHERE event_type = 'curriculum' AND letter_grade IN ('A+', 'A', 'B', 'B+', 'B-', 'C', 'C+','C-','D', 'F', 'Fail') AND lts.percentage IS NOT NULL 
+GROUP BY lgf.learner_key, lgf.learning_event_key;
